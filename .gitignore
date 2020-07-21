@@ -1,0 +1,4 @@
+# some frontend files are not needed
+/node_modules
+/package-lock.json
+/stats.json

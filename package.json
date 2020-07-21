@@ -1,0 +1,31 @@
+{
+  "name": "build",
+  "version": "1.0.0",
+  "description": "build system",
+  "main": "src/index.js",
+  "scripts": {
+    "gulp": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js --color --gulpfile gulpfile.babel.js --cwd ./",
+    "dev": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js dev",
+    "build": "cross-env NODE_ENV=prod node_modules/gulp/bin/gulp.js build",
+    "deploy": "cross-env NODE_ENV=prod node_modules/gulp/bin/gulp.js deploy"
+  },
+  "author": "Chistyakov Ilya",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.5",
+    "@babel/runtime": "^7.6.0",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.1.0",
+    "gulp": "^4.0.2",
+    "terser-webpack-plugin": "^2.0.1",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  }
+}
