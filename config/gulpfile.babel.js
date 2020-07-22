@@ -12,10 +12,11 @@ if (config.isDev) {
 }
 
 lazyRequireTask('assets', './tasks/assets');
-lazyRequireTask('build:deploy', './tasks/build-deploy');
+lazyRequireTask('deploy', './tasks/deploy');
+lazyRequireTask('clean', './tasks/clean');
 
-gulp.task('dev', gulp.series('assets'));
+gulp.task('dev', gulp.series('clean', 'assets'));
 
 gulp.task('deploy',
-    gulp.series(/*'clean:deployed', 'build', */'build:deploy')
+    gulp.series('clean', /*'build', */'deploy')
 );

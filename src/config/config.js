@@ -1,8 +1,9 @@
 const config = {
     publicPath: 'public_html',
     hotPath: 'hot',
-    assets: [],
     manifest: '',
+    assets: [],
+    clean: [],
 };
 
 export default config;

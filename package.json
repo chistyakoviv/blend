@@ -22,11 +22,12 @@
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "cross-env": "^7.0.2",
+    "del": "^5.1.0",
     "dotenv": "^8.1.0",
     "gulp": "^4.0.2",
+    "gulp-load-plugins": "^2.0.3",
     "terser-webpack-plugin": "^2.0.1",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.8",
-    "gulp-load-plugins": "^2.0.3"
+    "webpack-cli": "^3.3.8"
   }
 }
