@@ -12,9 +12,6 @@ export default function(options) {
         });
 
         return done();
-
-        return  gulp// .pipe(gp().newer(options.dest))
-            .pipe(gulp.dest(config.publicPath));
     };
 
 };

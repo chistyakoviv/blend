@@ -4,10 +4,10 @@
   "description": "build system",
   "main": "src/index.js",
   "scripts": {
-    "gulp": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js --color --gulpfile config/gulpfile.babel.js --cwd ./",
-    "dev": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js dev",
+    "gulp": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js --gulpfile config/gulpfile.babel.js --cwd ./",
+    "dev": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js dev --gulpfile config/gulpfile.babel.js --cwd ./",
     "build": "cross-env NODE_ENV=prod node_modules/gulp/bin/gulp.js build",
-    "deploy": "cross-env NODE_ENV=prod node_modules/gulp/bin/gulp.js deploy"
+    "deploy": "cross-env NODE_ENV=prod node_modules/gulp/bin/gulp.js deploy --gulpfile config/gulpfile.babel.js --cwd ./"
   },
   "author": "Chistyakov Ilya",
   "license": "MIT",

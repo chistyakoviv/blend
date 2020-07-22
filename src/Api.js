@@ -17,6 +17,10 @@ class Api {
     path() {
         return PathHelper.root('blend.config');
     }
+
+    manifest(path) {
+        config.manifest = path;
+    }
 }
 
 export default Api;
