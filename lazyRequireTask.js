@@ -5,7 +5,13 @@ export default function (taskName, pathName, options) {
     options.taskName = taskName;
 
     gulp.task(taskName, function(done) {
-        const task = require(pathName).call(this, options);
+        let task = require(pathName);
+
+        if (task.default) {
+            task = task.default;
+        }
+
+        task = task.call(this, options);
 
         return task(done);
     });

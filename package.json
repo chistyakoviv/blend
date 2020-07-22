@@ -4,7 +4,7 @@
   "description": "build system",
   "main": "src/index.js",
   "scripts": {
-    "gulp": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js --color --gulpfile gulpfile.babel.js --cwd ./",
+    "gulp": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js --color --gulpfile config/gulpfile.babel.js --cwd ./",
     "dev": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js dev",
     "build": "cross-env NODE_ENV=prod node_modules/gulp/bin/gulp.js build",
     "deploy": "cross-env NODE_ENV=prod node_modules/gulp/bin/gulp.js deploy"
@@ -26,6 +26,7 @@
     "gulp": "^4.0.2",
     "terser-webpack-plugin": "^2.0.1",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.8"
+    "webpack-cli": "^3.3.8",
+    "gulp-load-plugins": "^2.0.3"
   }
 }

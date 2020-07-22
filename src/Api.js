@@ -15,7 +15,7 @@ class Api {
     }
 
     path() {
-        return PathHelper.root('config/blend.config');
+        return PathHelper.root('blend.config');
     }
 }
 

@@ -2,3 +2,5 @@
 /node_modules
 /package-lock.json
 /stats.json
+/hot
+/examples/public
