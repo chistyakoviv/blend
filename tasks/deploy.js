@@ -1,5 +1,6 @@
 import config from '../src/config/config';
 import gulp from 'gulp';
+import del from 'del';
 
 export default function(options) {
 
@@ -10,7 +11,13 @@ export default function(options) {
                 .pipe(gulp.dest(config.manifest));
         }
 
-        return gulp.src([`${config.hotPath}/**/*`, `!${config.hotPath}/**/*.html`], { allowEmpty: true })
+        const src = [`${config.hotPath}/**/*`];
+
+        if (!config.deploy.html) {
+            src.push(`!${config.hotPath}/**/*.html`);
+        }
+
+        return gulp.src(src, { allowEmpty: true })
             .pipe(gulp.dest(config.publicPath));
     }
 };

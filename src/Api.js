@@ -39,6 +39,12 @@ class Api {
         return this;
     }
 
+    deploy(options) {
+        Object.assign(config.deploy, options);
+
+        return this;
+    }
+
     isDev() {
         return config.isDev;
     }

@@ -2,6 +2,7 @@ import blend from './src/blend';
 
 blend
     .setPublicPath('public_html')
+    .deploy({ html: false })
     .clean([
         'public_html/js/app*',
         'public_html/css',

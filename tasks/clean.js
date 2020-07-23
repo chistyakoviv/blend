@@ -12,7 +12,7 @@ function remove(resorces, done) {
         .then(paths => {
             counter++;
 
-            if (resorces.length == counter)
+            if (resorces.length === counter)
                 done();
         });
     });

@@ -1,8 +1,34 @@
+import fs from 'fs';
 import config from '../src/config/config';
 import gulp from 'gulp';
 import gp from 'gulp-load-plugins';
 
 const plugins = gp();
+
+function resolveManifest() {
+    let css = {}, js = {}, combined = {};
+
+    try {
+        css = JSON.parse(fs.readFileSync('./manifest/css.json'));
+    } catch(err) {}
+
+    try {
+        js = JSON.parse(fs.readFileSync('./manifest/webpack.json'));
+    } catch(err) {}
+
+    Object.assign(combined, css, js);
+
+    for (let i in combined) {
+        const clean = i.replace('.', '');
+
+        if (clean !== i) {
+            combined[clean] = combined[i];
+            delete combined[i];
+        }
+    }
+
+    return combined;
+}
 
 export default function(options) {
 
@@ -11,17 +37,21 @@ export default function(options) {
         if (config.html.length === 0)
             return done();
 
+        if (!config.isDev && !config.deploy.html)
+            return done();
+
         let stream;
 
         config.html.forEach(path => {
             // determine basepath by removing end part
-            const basepath = path.split('/');
-            basepath.pop();
+            // const basepath = path.split('/');
+            // basepath.pop();
 
             stream = gulp.src(path)
                 .pipe(plugins.fileInclude({
                     prefix: '@@',
-                    basepath: basepath.join('/')
+                    // context: resolveManifest()
+                    // basepath: basepath.join('/')
                 }))
                 .pipe(plugins.if(!config.isDev, plugins.revReplace({
                     manifest: gulp.src('manifest/css.json', { allowEmpty: true })

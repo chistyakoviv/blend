@@ -12,7 +12,7 @@ if (config.isDev) {
 }
 
 lazyRequireTask('assets', './tasks/assets');
-lazyRequireTask('publish', './tasks/deploy');
+// lazyRequireTask('publish', './tasks/deploy');
 lazyRequireTask('clean', './tasks/clean');
 lazyRequireTask('html', './tasks/html');
 
@@ -25,5 +25,5 @@ gulp.task('build', gulp.series(
 gulp.task('dev', gulp.series('build'));
 
 gulp.task('deploy',
-    gulp.series('build', 'publish')
+    gulp.series('build'/*, 'publish'*/)
 );
