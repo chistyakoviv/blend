@@ -1,6 +1,7 @@
-import blend from './src/Blend';
+import blend from './src/blend';
 
 blend
+    .setPublicPath('public_html')
     .clean([
         'public_html/js/app*',
         'public_html/css',
@@ -9,4 +10,5 @@ blend
     ])
     .copy('examples/src/assets/**/*')
     .copy('examples/src/assets/**/*', 'examples/public')
+    .html('examples/src/html/[^^_]*.html')
     .manifest('examples/manifest');

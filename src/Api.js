@@ -33,6 +33,12 @@ class Api {
         return this;
     }
 
+    html(path) {
+        config.html.push(path);
+
+        return this;
+    }
+
     isDev() {
         return config.isDev;
     }

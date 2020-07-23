@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import config from '../src/config/config';
-import blend from '../src/Blend';
+import blend from '../src/blend';
 import lazyRequireTask from '../lazyRequireTask'
 
 config.isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'dev';
@@ -12,11 +12,18 @@ if (config.isDev) {
 }
 
 lazyRequireTask('assets', './tasks/assets');
-lazyRequireTask('deploy', './tasks/deploy');
+lazyRequireTask('publish', './tasks/deploy');
 lazyRequireTask('clean', './tasks/clean');
+lazyRequireTask('html', './tasks/html');
 
-gulp.task('dev', gulp.series('clean', 'assets'));
+gulp.task('build', gulp.series(
+    'clean',
+    gulp.parallel(/*'styles', */'assets'/*, 'webpack'*/),
+    'html')
+);
+
+gulp.task('dev', gulp.series('build'));
 
 gulp.task('deploy',
-    gulp.series('clean', /*'build', */'deploy')
+    gulp.series('build', 'publish')
 );

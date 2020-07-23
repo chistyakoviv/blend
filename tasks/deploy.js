@@ -10,7 +10,7 @@ export default function(options) {
                 .pipe(gulp.dest(config.manifest));
         }
 
-        return gulp.src([`${config.hotPath}/**/*`, `!${config.hotPath}.html`], { allowEmpty: true })
+        return gulp.src([`${config.hotPath}/**/*`, `!${config.hotPath}/**/*.html`], { allowEmpty: true })
             .pipe(gulp.dest(config.publicPath));
     }
 };

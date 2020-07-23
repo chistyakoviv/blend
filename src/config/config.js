@@ -4,6 +4,7 @@ const config = {
     manifest: '',
     assets: [],
     clean: [],
+    html: [],
 };
 
 export default config;
