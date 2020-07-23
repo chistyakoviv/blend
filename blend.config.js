@@ -12,4 +12,5 @@ blend
     .copy('examples/src/assets/**/*')
     .copy('examples/src/assets/**/*', 'examples/public')
     .html('examples/src/html/[^^_]*.html')
+    .sass('examples/src/sass/combined.scss', 'css')
     .manifest('examples/manifest');

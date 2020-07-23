@@ -7,6 +7,7 @@ const config = {
     },
     assets: [],
     clean: [],
+    sass: [],
     html: [],
 };
 

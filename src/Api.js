@@ -33,14 +33,20 @@ class Api {
         return this;
     }
 
-    html(path) {
-        config.html.push(path);
+    html(source, destination = '') {
+        config.html.push({ source, destination });
 
         return this;
     }
 
     deploy(options) {
         Object.assign(config.deploy, options);
+
+        return this;
+    }
+
+    sass(source, destination = '') {
+        config.sass.push({ source, destination });
 
         return this;
     }

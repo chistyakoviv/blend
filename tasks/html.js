@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import config from '../src/config/config';
 import gulp from 'gulp';
 import gp from 'gulp-load-plugins';
@@ -42,21 +43,18 @@ export default function(options) {
 
         let stream;
 
-        config.html.forEach(path => {
+        config.html.forEach(item => {
             // determine basepath by removing end part
             // const basepath = path.split('/');
             // basepath.pop();
 
-            stream = gulp.src(path)
+            stream = gulp.src(item.source)
                 .pipe(plugins.fileInclude({
                     prefix: '@@',
                     // context: resolveManifest()
                     // basepath: basepath.join('/')
                 }))
-                .pipe(plugins.if(!config.isDev, plugins.revReplace({
-                    manifest: gulp.src('manifest/css.json', { allowEmpty: true })
-                })))
-                .pipe(gulp.dest(config.publicPath));
+                .pipe(gulp.dest(item.destination ? path.resolve(config.publicPath, item.destination) : config.publicPath));
         });
 
         return stream;

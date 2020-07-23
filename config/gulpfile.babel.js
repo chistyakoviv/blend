@@ -15,10 +15,11 @@ lazyRequireTask('assets', './tasks/assets');
 // lazyRequireTask('publish', './tasks/deploy');
 lazyRequireTask('clean', './tasks/clean');
 lazyRequireTask('html', './tasks/html');
+lazyRequireTask('sass', './tasks/sass');
 
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel(/*'styles', */'assets'/*, 'webpack'*/),
+    gulp.parallel('assets', 'sass'/*, 'webpack'*/),
     'html')
 );
 
