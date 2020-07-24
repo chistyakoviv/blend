@@ -31,7 +31,7 @@ function resolveManifest() {
     return combined;
 }
 
-export default function(options) {
+export default function() {
 
     return function(done) {
 
@@ -44,15 +44,10 @@ export default function(options) {
         let stream;
 
         config.html.forEach(item => {
-            // determine basepath by removing end part
-            // const basepath = path.split('/');
-            // basepath.pop();
 
             stream = gulp.src(item.source)
                 .pipe(plugins.fileInclude({
-                    prefix: '@@',
-                    // context: resolveManifest()
-                    // basepath: basepath.join('/')
+                    prefix: '@@'
                 }))
                 .pipe(gulp.dest(item.destination ? path.resolve(config.publicPath, item.destination) : config.publicPath));
         });

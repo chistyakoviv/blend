@@ -63,7 +63,7 @@ class Api {
 
         if (!output)
             output = entry[0];
-console.log(config.publicPath);
+
         config.compile[output] = entry;
 
         return this;
