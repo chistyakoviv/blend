@@ -13,4 +13,5 @@ blend
     .copy('examples/src/assets/**/*', 'examples/public')
     .html('examples/src/html/[^^_]*.html')
     .sass('examples/src/sass/combined.scss', 'css')
+    .js('examples/src/js/Application.js', 'js/app')
     .manifest('examples/manifest');

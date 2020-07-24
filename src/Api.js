@@ -1,3 +1,5 @@
+import glob from 'glob';
+import path from 'path';
 import config from './config/config';
 import PathHelper from './helpers/PathHelper';
 
@@ -47,6 +49,22 @@ class Api {
 
     sass(source, destination = '') {
         config.sass.push({ source, destination });
+
+        return this;
+    }
+
+    js(entry, output = '') {
+        if (typeof entry === 'string' && entry.includes('*')) {
+            entry = glob.sync(entry);
+        }
+
+        output = output.startsWith(config.publicPath) ? output.slice(config.publicPath.length) : output;
+        entry = [].concat(entry).map(file => file.startsWith('./') ? file : `./${file}`);
+
+        if (!output)
+            output = entry[0];
+console.log(config.publicPath);
+        config.compile[output] = entry;
 
         return this;
     }

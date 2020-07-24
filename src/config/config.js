@@ -1,14 +1,34 @@
 const config = {
-    publicPath: 'public_html',
+    publicPath: 'public',
     hotPath: 'hot',
     manifest: '',
+
     deploy: {
         html: true
     },
+
+    autoprefixer: true,
+
+    compile: {},
+
     assets: [],
     clean: [],
     sass: [],
     html: [],
+
+    terser: {
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+        terserOptions: {
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            }
+        }
+    },
 };
 
 export default config;

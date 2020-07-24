@@ -23,8 +23,12 @@ export default function(options) {
                         title: options.taskName,
                         message: err.message
                     };
-                }))
-                .pipe(plugins.autoprefixer())
+                }));
+
+            if (config.autoprefixer)
+                stream.pipe(plugins.autoprefixer());
+
+            stream
                 .pipe(plugins.if(config.isDev, plugins.sourcemaps.write('./maps')))
                 .pipe(plugins.if(!config.isDev, plugins.cssnano()))
                 .pipe(plugins.if(!config.isDev, plugins.rev()))

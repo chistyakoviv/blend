@@ -12,19 +12,13 @@ if (config.isDev) {
 }
 
 lazyRequireTask('assets', './tasks/assets');
-// lazyRequireTask('publish', './tasks/deploy');
 lazyRequireTask('clean', './tasks/clean');
 lazyRequireTask('html', './tasks/html');
 lazyRequireTask('sass', './tasks/sass');
+lazyRequireTask('webpack', './tasks/webpack');
 
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('assets', 'sass'/*, 'webpack'*/),
+    gulp.parallel('assets', 'sass', 'webpack'),
     'html')
-);
-
-gulp.task('dev', gulp.series('build'));
-
-gulp.task('deploy',
-    gulp.series('build'/*, 'publish'*/)
 );
