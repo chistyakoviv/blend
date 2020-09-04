@@ -7,7 +7,7 @@ import config from '../src/config/config';
 import configFactory from '../src/config/webpack.config';
 import PathHelper from '../src/helpers/PathHelper'
 
-const wpConfig = configFactory();
+const wpConfig = Object.assign(configFactory(), config.webpack);
 
 export default function() {
 

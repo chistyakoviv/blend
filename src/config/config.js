@@ -29,6 +29,8 @@ const config = {
             }
         }
     },
+
+    webpack: {}
 };
 
 export default config;

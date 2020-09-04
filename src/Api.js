@@ -1,5 +1,4 @@
 import glob from 'glob';
-import path from 'path';
 import config from './config/config';
 import PathHelper from './helpers/PathHelper';
 
@@ -27,10 +26,11 @@ class Api {
     }
 
     clean(resource) {
-        if (resource instanceof Array)
-            config.clean = [...config.clean, ...resource];
-        else
-            config.clean = [...config.clean, resource];
+        if (resource instanceof Array) {
+            config.clean = [...config.clean, ...resource.map(occurrence => PathHelper.normalize(occurrence))];
+        } else {
+            config.clean = [...config.clean, PathHelper.normalize(resource)];
+        }
 
         return this;
     }
@@ -41,8 +41,8 @@ class Api {
         return this;
     }
 
-    deploy(options) {
-        Object.assign(config.deploy, options);
+    options(options) {
+        Object.assign(config, options);
 
         return this;
     }
@@ -58,11 +58,12 @@ class Api {
             entry = glob.sync(entry);
         }
 
-        output = output.startsWith(config.publicPath) ? output.slice(config.publicPath.length) : output;
-        entry = [].concat(entry).map(file => file.startsWith('./') ? file : `./${file}`);
+        output = PathHelper.cutExtension(output);
+        entry = [].concat(entry).map(file => `./${file}`);
 
-        if (!output)
+        if (!output) {
             output = entry[0];
+        }
 
         config.compile[output] = entry;
 
