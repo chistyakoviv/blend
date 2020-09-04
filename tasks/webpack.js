@@ -19,7 +19,7 @@ export default function() {
                 processOutput(assets) {
                     for (let key in assets) {
                         if (assets[key].js) {
-                            assets[key + '.js'] = assets[key].js.slice(wpConfig.output.publicPath.length);
+                            assets[`${key}.js`] = assets[key].js.slice(wpConfig.output.publicPath.length);
                             delete assets[key];
                         }
                     }
@@ -34,8 +34,6 @@ export default function() {
 
     return function(done) {
         webpack(wpConfig, function(err, stats) {
-            // fs.writeFileSync(path.join(__dirname, "../stats.json"), JSON.stringify(stats.toJson()));
-
             if (!err) { // if no hard error
                 // then try to get soft error
                 err = stats.toJson().errors[0];

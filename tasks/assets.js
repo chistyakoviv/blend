@@ -15,7 +15,7 @@ export default function(options) {
             if (config.isDev && !destination.startsWith(config.publicPath))
                 return;
 
-            stream = gulp.src(asset.source/*, { since: gulp.lastRun(options.taskName) }*/)
+            stream = gulp.src(asset.source)
                 .pipe(gulp.dest(PathHelper.normalize(destination)));
         });
 
