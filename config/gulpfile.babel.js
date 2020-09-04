@@ -16,9 +16,12 @@ lazyRequireTask('clean', './tasks/clean');
 lazyRequireTask('html', './tasks/html');
 lazyRequireTask('sass', './tasks/sass');
 lazyRequireTask('webpack', './tasks/webpack');
+lazyRequireTask('server', './tasks/server');
 
-gulp.task('build', gulp.series(
-    'clean',
-    gulp.parallel('assets', 'sass', 'webpack'),
-    'html')
-);
+const taskList = ['clean', gulp.parallel('assets', 'sass', 'webpack'), 'html'];
+
+if (config.isDev) {
+    taskList.push(gulp.parallel('server'));
+}
+
+gulp.task('build', gulp.series(...taskList));

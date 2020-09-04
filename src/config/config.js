@@ -30,7 +30,9 @@ const config = {
         }
     },
 
-    webpack: {}
+    webpack: {},
+
+    browserSync: {}
 };
 
 export default config;
