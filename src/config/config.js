@@ -1,7 +1,7 @@
 const config = {
     publicPath: 'public',
     hotPath: 'hot',
-    manifest: '',
+    manifest: 'manifest',
 
     deploy: {
         html: true
@@ -15,6 +15,12 @@ const config = {
     clean: [],
     sass: [],
     html: [],
+
+    watch: {
+        sass: '',
+        html: '',
+        assets: ''
+    },
 
     terser: {
         cache: true,

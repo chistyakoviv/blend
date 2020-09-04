@@ -20,6 +20,8 @@ export default function() {
             publicPath: '/'
         },
 
+        watch: config.isDev,
+
         module: { rules: [] },
 
         plugins: [],

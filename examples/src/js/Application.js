@@ -1,6 +1,6 @@
 class Application {
     run() {
-        console.log('Application is started');
+        console.log('Application is started!');
     }
 }
 

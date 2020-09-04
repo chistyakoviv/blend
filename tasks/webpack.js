@@ -15,7 +15,7 @@ export default function() {
         wpConfig.plugins.push(
             new AssetsPlugin({
                 filename: 'webpack.json',
-                path: path.resolve(PathHelper.root(), 'manifest'),
+                path: path.resolve(PathHelper.root(), config.manifest),
                 processOutput(assets) {
                     for (let key in assets) {
                         if (assets[key].js) {

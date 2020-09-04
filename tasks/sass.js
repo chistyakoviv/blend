@@ -34,7 +34,7 @@ export default function(options) {
                 .pipe(plugins.if(!config.isDev, plugins.rev()))
                 .pipe(gulp.dest(item.destination ? path.resolve(config.publicPath, item.destination) : config.publicPath))
                 .pipe(plugins.if(!config.isDev, plugins.rev.manifest('css.json')))
-                .pipe(plugins.if(!config.isDev, gulp.dest('manifest')));
+                .pipe(plugins.if(!config.isDev, gulp.dest(config.manifest)));
         });
 
         return stream;

@@ -47,6 +47,12 @@ class Api {
         return this;
     }
 
+    watch(paths) {
+        Object.assign(config.watch, paths);
+
+        return this;
+    }
+
     sass(source, destination = '') {
         config.sass.push({ source, destination });
 
