@@ -1,6 +1,6 @@
-import config from '../src/config/config';
-import gulp from 'gulp';
-import del from 'del';
+const config = require('../src/config/config');
+const gulp = require('gulp');
+const del = require('del');
 
 function remove(resorces, done) {
     let counter = 0;
@@ -18,9 +18,12 @@ function remove(resorces, done) {
     });
 }
 
-export default function(options) {
+module.exports = function(options) {
 
     return function(done) {
+        if (!config.isDev && config.clean.length === 0)
+            return done();
+
         remove(config.isDev ? [config.hotPath] : config.clean, done);
     };
 };

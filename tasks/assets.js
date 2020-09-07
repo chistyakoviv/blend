@@ -1,9 +1,9 @@
-import path from 'path';
-import config from '../src/config/config';
-import gulp from 'gulp';
-import PathHelper from '../src/helpers/PathHelper';
+const path = require('path');
+const config = require('../src/config/config');
+const gulp = require('gulp');
+const PathHelper = require('../src/helpers/PathHelper');
 
-export default function(options) {
+module.exports = function(options) {
 
     return function(done) {
 

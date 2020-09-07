@@ -1,11 +1,11 @@
-import path from 'path';
-import config from '../src/config/config';
-import gulp from 'gulp';
-import gp from 'gulp-load-plugins';
+const path = require('path');
+const config = require('../src/config/config');
+const gulp = require('gulp');
+const gp = require('gulp-load-plugins');
 
 const plugins = gp();
 
-export default function(options) {
+module.exports = function(options) {
 
     return function(done) {
 

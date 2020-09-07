@@ -1,8 +1,8 @@
-import config from '../src/config/config';
-import gulp from 'gulp';
-import del from 'del';
+const config = require('../src/config/config');
+const gulp = require('gulp');
+const del = require('del');
 
-export default function(options) {
+module.exports = function(options) {
 
     return function() {
 

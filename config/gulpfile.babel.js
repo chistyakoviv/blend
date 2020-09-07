@@ -1,7 +1,7 @@
-import gulp from 'gulp';
-import config from '../src/config/config';
-import blend from '../src/blend';
-import lazyRequireTask from '../lazyRequireTask'
+const gulp = require('gulp');
+const config = require('../src/config/config');
+const blend = require('../src/blend');
+const lazyRequireTask = require('../lazyRequireTask');
 
 config.isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'dev';
 

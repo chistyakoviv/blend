@@ -1,15 +1,15 @@
-import webpack from 'webpack';
-import path from 'path';
-import fs from 'fs';
-import gulplog from 'gulplog';
-import AssetsPlugin from 'assets-webpack-plugin';
-import config from '../src/config/config';
-import configFactory from '../src/config/webpack.config';
-import PathHelper from '../src/helpers/PathHelper'
+const webpack = require('webpack');
+const path = require('path');
+const fs = require('fs');
+const gulplog = require('gulplog');
+const AssetsPlugin = require('assets-webpack-plugin');
+const config = require('../src/config/config');
+const configFactory = require('../src/config/webpack.config');
+const PathHelper = require('../src/helpers/PathHelper');
 
 const wpConfig = Object.assign(configFactory(), config.webpack);
 
-export default function() {
+module.exports = function() {
 
     if (!config.isDev) {
         wpConfig.plugins.push(

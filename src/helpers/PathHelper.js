@@ -1,5 +1,5 @@
-import path from 'path';
-import config from '../config/config';
+const path = require('path');
+const config = require('../config/config.js');
 
 let rootPath = process.cwd(); // path.resolve(__dirname, '')
 
@@ -27,4 +27,4 @@ class PathHelper {
     }
 }
 
-export default PathHelper;
+module.exports = PathHelper;

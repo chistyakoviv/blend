@@ -1,11 +1,11 @@
-import path from 'path';
-import fs from 'fs';
-import AssetsPlugin from 'assets-webpack-plugin';
-import TerserPlugin from 'terser-webpack-plugin';
-import config from './config';
-import PathHelper from '../helpers/PathHelper';
+const path = require('path');
+const fs = require('fs');
+const AssetsPlugin = require('assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const config = require('./config');
+const PathHelper = require('../helpers/PathHelper');
 
-export default function() {
+module.exports = function() {
     return {
         context: PathHelper.root(),
 

@@ -1,7 +1,7 @@
-import gulp from 'gulp';
-import config from '../src/config/config';
+const gulp = require('gulp');
+const config = require('../src/config/config');
 
-export default function(options) {
+module.exports = function(options) {
 
     return function() {
 

@@ -1,3 +1,3 @@
-import Api from './Api';
+const Api = require('./Api.js');
 
-export default new Api();
+module.exports = new Api();

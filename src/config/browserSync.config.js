@@ -1,6 +1,6 @@
-import config from './config';
+const config = require('./config');
 
-export default function() {
+module.exports = function() {
     return {
         port: 3017,
         server: {

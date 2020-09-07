@@ -1,8 +1,8 @@
-import fs from 'fs';
-import path from 'path';
-import config from '../src/config/config';
-import gulp from 'gulp';
-import gp from 'gulp-load-plugins';
+const fs = require('fs');
+const path = require('path');
+const config = require('../src/config/config');
+const gulp = require('gulp');
+const gp = require('gulp-load-plugins');
 
 const plugins = gp();
 
@@ -31,7 +31,7 @@ function resolveManifest() {
     return combined;
 }
 
-export default function() {
+module.exports = function() {
 
     return function(done) {
 

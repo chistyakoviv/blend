@@ -41,4 +41,4 @@ const config = {
     browserSync: {}
 };
 
-export default config;
+module.exports = config;

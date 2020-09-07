@@ -1,6 +1,6 @@
-import glob from 'glob';
-import config from './config/config';
-import PathHelper from './helpers/PathHelper';
+const glob = require('glob');
+const config = require('./config/config.js');
+const PathHelper = require('./helpers/PathHelper.js');
 
 class Api {
     setPublicPath(newPath) {
@@ -81,4 +81,4 @@ class Api {
     }
 }
 
-export default Api;
+module.exports = Api;
