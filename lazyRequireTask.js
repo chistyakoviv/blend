@@ -1,6 +1,6 @@
-import gulp from 'gulp';
+const gulp = require('gulp');
 
-export default function (taskName, pathName, options) {
+module.exports = function (taskName, pathName, options) {
     options = options || {};
     options.taskName = taskName;
 
