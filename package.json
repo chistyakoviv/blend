@@ -2,17 +2,13 @@
   "name": "blend",
   "version": "1.0.0",
   "description": "build system",
-  "main": "src/index.js",
+  "main": "src/blend.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js build --gulpfile config/gulpfile.babel.js --cwd .",
-    "deploy": "cross-env NODE_ENV=prod node_modules/gulp/bin/gulp.js build --gulpfile config/gulpfile.babel.js --cwd ."
+    "dev": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js build --gulpfile setup/gulpfile.js --cwd .",
+    "deploy": "cross-env NODE_ENV=prod node_modules/gulp/bin/gulp.js build --gulpfile setup/gulpfile.js --cwd ."
   },
   "author": "Chistyakov Ilya",
   "license": "MIT",
-  "browserslist": [
-    "last 2 version",
-    "> 1%"
-  ],
   "dependencies": {
     "@babel/core": "^7.10.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
