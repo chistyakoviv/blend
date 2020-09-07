@@ -1,5 +1,5 @@
 {
-  "name": "build",
+  "name": "blend",
   "version": "1.0.0",
   "description": "build system",
   "main": "src/index.js",
