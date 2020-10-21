@@ -10,7 +10,7 @@ class Api {
     }
 
     copy(source, destination = '') {
-        config.assets.push({ source, destination });
+        config.assets.push({ source, destination: PathHelper.cutPublicPath(destination) });
 
         return this;
     }

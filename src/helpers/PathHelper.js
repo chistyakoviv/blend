@@ -23,7 +23,11 @@ class PathHelper {
     }
 
     static normalize(str) {
-        return `${config.publicPath}/${PathHelper.cutBeginning(config.publicPath, str)}`;
+        return `${config.publicPath}/${PathHelper.cutPublicPath(str)}`;
+    }
+
+    static cutPublicPath(str) {
+        return PathHelper.cutBeginning(config.publicPath, str);
     }
 }
 

@@ -10,13 +10,10 @@ module.exports = function(options) {
         let stream;
 
         config.assets.forEach(asset => {
-            const destination = asset.destination ? asset.destination : config.publicPath;
-
-            if (config.isDev && !destination.startsWith(config.publicPath))
-                return;
+            const destination = asset.destination ? path.resolve(config.publicPath, asset.destination) : config.publicPath;
 
             stream = gulp.src(asset.source)
-                .pipe(gulp.dest(PathHelper.normalize(destination)));
+                .pipe(gulp.dest(destination));
         });
 
         return stream ? stream : done();

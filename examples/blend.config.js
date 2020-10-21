@@ -1,4 +1,4 @@
-import blend from './src/blend';
+const blend = require('./src/blend');
 
 blend
     .setPublicPath('public_html')
