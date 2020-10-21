@@ -23,12 +23,8 @@ module.exports = function(options) {
                         title: options.taskName,
                         message: err.message
                     };
-                }));
-
-            if (config.autoprefixer)
-                stream.pipe(plugins.autoprefixer());
-
-            stream
+                }))
+                .pipe(plugins.if(config.autoprefixer, plugins.autoprefixer()))
                 .pipe(plugins.if(config.isDev, plugins.sourcemaps.write('./maps')))
                 .pipe(plugins.if(!config.isDev, plugins.cssnano()))
                 .pipe(plugins.if(!config.isDev, plugins.rev()))
