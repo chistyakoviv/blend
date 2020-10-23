@@ -1,6 +1,6 @@
 {
   "name": "blend",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "build system",
   "main": "src/blend.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "gulp-rev": "git+https://github.com/chistyakoviv/gulp-rev.git",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
+    "merge-stream": "^2.0.0",
     "terser-webpack-plugin": "^2.3.7",
     "webpack": "^4.43.0"
   }

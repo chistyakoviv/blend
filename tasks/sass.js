@@ -1,6 +1,7 @@
 const path = require('path');
 const config = require('../src/config/config');
 const gulp = require('gulp');
+const mergeStream = require('merge-stream');
 const gp = require('gulp-load-plugins');
 
 const plugins = gp();
@@ -12,10 +13,8 @@ module.exports = function(options) {
         if (config.sass.length === 0)
             return done();
 
-        let stream;
-
-        config.sass.forEach(item => {
-            stream = gulp.src(item.source)
+        return mergeStream(...config.sass.map(item => {
+            return gulp.src(item.source)
                 .pipe(plugins.if(config.isDev, plugins.sourcemaps.init()))
                 .pipe(plugins.sass())
                 .on('error', plugins.notify.onError(function(err) {
@@ -31,9 +30,7 @@ module.exports = function(options) {
                 .pipe(gulp.dest(item.destination ? path.resolve(config.publicPath, item.destination) : config.publicPath))
                 .pipe(plugins.if(!config.isDev, plugins.rev.manifest('css.json')))
                 .pipe(plugins.if(!config.isDev, gulp.dest(config.manifest)));
-        });
-
-        return stream;
+        }));
     };
 
 };
