@@ -38,7 +38,9 @@ const config = {
 
     webpack: {},
 
-    browserSync: {}
+    browserSync: {},
+
+    babelConfig: {}
 };
 
 module.exports = config;

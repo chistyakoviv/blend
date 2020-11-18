@@ -4,12 +4,27 @@ const fs = require('fs');
 const gulplog = require('gulplog');
 const AssetsPlugin = require('assets-webpack-plugin');
 const config = require('../src/config/config');
-const configFactory = require('../src/config/webpack.config');
+const wpConfigFactory = require('../src/config/webpack.config');
 const PathHelper = require('../src/helpers/PathHelper');
+const babelConfigFactory = require('../src/config/babel.config');
 
-const wpConfig = Object.assign(configFactory(), config.webpack);
+const wpConfig = Object.assign(wpConfigFactory(), config.webpack);
+const babelConfig = Object.assign(babelConfigFactory(), config.babelConfig);
 
 module.exports = function() {
+
+    wpConfig.module.rules.push(
+        {
+            test: /\.(cjs|mjs|jsx?|tsx?)$/,
+            exclude: /(node_modules|bower_components)/,
+            use: [
+                {
+                    loader: 'babel-loader',
+                    options: babelConfig
+                }
+            ]
+        }
+    );
 
     if (!config.isDev) {
         wpConfig.plugins.push(
