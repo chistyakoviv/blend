@@ -14,7 +14,7 @@ module.exports = function() {
 
     wpConfig.module.rules.push(
         {
-            test: /\.(cjs|mjs|jsx?|tsx?)$/,
+            test: /\.(cjs|mjs|jsx?)$/,
             exclude: /(node_modules|bower_components)/,
             use: [
                 {
@@ -22,6 +22,12 @@ module.exports = function() {
                     options: babelConfig
                 }
             ]
+        },
+        {
+            test: /\.tsx?$/,
+            loader: 'ts-loader',
+            exclude: /node_modules/,
+            options: {}
         }
     );
 
@@ -46,7 +52,7 @@ module.exports = function() {
 
     wpConfig.entry = config.compile;
 
-    return function(done) {console.log(!config.compile);
+    return function(done) {
         if (Object.keys(config.compile).length === 0)
             return done();
 

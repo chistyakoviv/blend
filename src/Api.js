@@ -76,6 +76,10 @@ class Api {
         return this;
     }
 
+    ts(entry, output) {
+        return this.js(entry, output);
+    }
+
     isDev() {
         return config.isDev;
     }
