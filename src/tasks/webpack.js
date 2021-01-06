@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const fs = require('fs');
 const gulplog = require('gulplog');
 const AssetsPlugin = require('assets-webpack-plugin');
 const config = require('../config/config');
@@ -47,7 +46,10 @@ module.exports = function() {
 
     wpConfig.entry = config.compile;
 
-    return function(done) {
+    return function(done) {console.log(!config.compile);
+        if (Object.keys(config.compile).length === 0)
+            return done();
+
         webpack(wpConfig, function(err, stats) {
             if (!err) { // if no hard error
                 // then try to get soft error
