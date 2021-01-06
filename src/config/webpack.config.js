@@ -42,6 +42,10 @@ module.exports = function() {
             builtAt: false
         },
 
+        resolve: {
+            extensions: ['.js', 'cjs', 'mjs', 'jsx']
+        },
+
         performance: {
             hints: false
         },

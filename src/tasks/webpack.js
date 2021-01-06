@@ -22,14 +22,20 @@ module.exports = function() {
                     options: babelConfig
                 }
             ]
-        },
-        {
-            test: /\.tsx?$/,
-            loader: 'ts-loader',
-            exclude: /node_modules/,
-            options: {}
         }
     );
+
+    if (config.useTypescript) {
+        wpConfig.module.rules.push(
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {}
+            }
+        );
+        wpConfig.resolve.extensions.push('.ts', '.tsx');
+    }
 
     if (!config.isDev) {
         wpConfig.plugins.push(

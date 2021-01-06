@@ -9,6 +9,7 @@ const config = {
 
     autoprefixer: true,
 
+    useTypescript: false,
     compile: {},
 
     assets: [],

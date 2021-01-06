@@ -77,6 +77,8 @@ class Api {
     }
 
     ts(entry, output) {
+        config.useTypescript = true;
+
         return this.js(entry, output);
     }
 
