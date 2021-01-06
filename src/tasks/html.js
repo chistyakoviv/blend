@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const config = require('../src/config/config');
+const config = require('../config/config');
 const gulp = require('gulp');
 const gp = require('gulp-load-plugins');
 

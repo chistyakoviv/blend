@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const config = require('../src/config/config');
+const config = require('../config/config');
 
 module.exports = function(options) {
 

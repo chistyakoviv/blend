@@ -11,13 +11,13 @@ if (config.isDev) {
     blend.setPublicPath(config.hotPath);
 }
 
-lazyRequireTask('assets', './tasks/assets');
-lazyRequireTask('clean', './tasks/clean');
-lazyRequireTask('html', './tasks/html');
-lazyRequireTask('sass', './tasks/sass');
-lazyRequireTask('webpack', './tasks/webpack');
-lazyRequireTask('server', './tasks/server');
-lazyRequireTask('watch', './tasks/watch');
+lazyRequireTask('assets', './src/tasks/assets');
+lazyRequireTask('clean', './src/tasks/clean');
+lazyRequireTask('html', './src/tasks/html');
+lazyRequireTask('sass', './src/tasks/sass');
+lazyRequireTask('webpack', './src/tasks/webpack');
+lazyRequireTask('server', './src/tasks/server');
+lazyRequireTask('watch', './src/tasks/watch');
 
 const taskList = ['clean', gulp.parallel('assets', 'sass', 'webpack'), 'html'];
 

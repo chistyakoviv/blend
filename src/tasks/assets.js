@@ -1,8 +1,8 @@
 const path = require('path');
 const gulp = require('gulp');
 const mergeStream = require('merge-stream');
-const PathHelper = require('../src/helpers/PathHelper');
-const config = require('../src/config/config');
+const PathHelper = require('../helpers/PathHelper');
+const config = require('../config/config');
 
 module.exports = function(options) {
 

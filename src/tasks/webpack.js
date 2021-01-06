@@ -3,10 +3,10 @@ const path = require('path');
 const fs = require('fs');
 const gulplog = require('gulplog');
 const AssetsPlugin = require('assets-webpack-plugin');
-const config = require('../src/config/config');
-const wpConfigFactory = require('../src/config/webpack.config');
-const PathHelper = require('../src/helpers/PathHelper');
-const babelConfigFactory = require('../src/config/babel.config');
+const config = require('../config/config');
+const wpConfigFactory = require('../config/webpack.config');
+const PathHelper = require('../helpers/PathHelper');
+const babelConfigFactory = require('../config/babel.config');
 
 const wpConfig = Object.assign(wpConfigFactory(), config.webpack);
 const babelConfig = Object.assign(babelConfigFactory(), config.babelConfig);

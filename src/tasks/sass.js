@@ -1,5 +1,5 @@
 const path = require('path');
-const config = require('../src/config/config');
+const config = require('../config/config');
 const gulp = require('gulp');
 const mergeStream = require('merge-stream');
 const gp = require('gulp-load-plugins');
