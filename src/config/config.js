@@ -24,9 +24,7 @@ const config = {
     },
 
     terser: {
-        cache: true,
         parallel: true,
-        sourceMap: true,
         terserOptions: {
             compress: {
                 warnings: false

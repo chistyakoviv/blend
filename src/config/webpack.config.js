@@ -11,39 +11,51 @@ module.exports = function() {
 
         mode: config.isDev ? 'development' : 'production',
 
+        infrastructureLogging: config.isDev ? { level: 'none' } : {},
+
         entry: {},
 
         output: {
             path: path.resolve(config.publicPath),
             filename: config.isDev ? '[name].js' : '[name]-[chunkhash:10].js',
             chunkFilename: config.isDev ? '[name].js' : '[name]-[chunkhash:10].js',
-            publicPath: '/'
+            publicPath: '/',
+            // support for ie 10+
+            environment: {
+                // The environment supports arrow functions ('() => { ... }').
+                arrowFunction: false,
+                // The environment supports BigInt as literal (123n).
+                bigIntLiteral: false,
+                // The environment supports const and let for variable declarations.
+                const: false,
+                // The environment supports destructuring ('{ a, b } = obj').
+                destructuring: false,
+                // The environment supports an async import() function to import EcmaScript modules.
+                dynamicImport: false,
+                // The environment supports 'for of' iteration ('for (const x of array) { ... }').
+                forOf: false,
+                // The environment supports ECMAScript Module syntax to import ECMAScript modules (import ... from '...').
+                module: false,
+            }
         },
 
         watch: config.isDev,
+
+        watchOptions: {
+            ignored: /node_modules/
+        },
 
         module: { rules: [] },
 
         plugins: [],
 
-        stats: {
-            hash: false,
-            version: false,
-            timings: false,
-            children: false,
-            errorDetails: false,
-            entrypoints: false,
-            performance: !config.isDev,
-            chunks: false,
-            modules: false,
-            reasons: false,
-            source: false,
-            publicPath: false,
-            builtAt: false
+        resolve: {
+            extensions: ['*', '.wasm', '.mjs', '.js', '.json']
         },
 
-        resolve: {
-            extensions: ['.js', 'cjs', 'mjs', 'jsx']
+        stats: {
+            preset: 'errors-warnings',
+            performance: !config.isDev
         },
 
         performance: {
@@ -52,7 +64,10 @@ module.exports = function() {
 
         optimization: !config.isDev
             ? {
-                  minimizer: [new TerserPlugin(config.terser)]
+                providedExports: true,
+                sideEffects: true,
+                usedExports: true,
+                minimizer: [new TerserPlugin(config.terser)]
               }
             : {},
 
