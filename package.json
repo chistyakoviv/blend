@@ -1,6 +1,6 @@
 {
   "name": "blend",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "build system",
   "main": "src/blend.js",
   "scripts": {
