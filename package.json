@@ -1,11 +1,12 @@
 {
   "name": "blend",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "build system",
   "main": "src/blend.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js build --gulpfile setup/gulpfile.js --cwd .",
-    "deploy": "cross-env NODE_ENV=prod node_modules/gulp/bin/gulp.js build --gulpfile setup/gulpfile.js --cwd ."
+    "dev": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js build --watch --gulpfile setup/gulpfile.js --cwd .",
+    "deploy": "cross-env NODE_ENV=prod node_modules/gulp/bin/gulp.js build --gulpfile setup/gulpfile.js --cwd .",
+    "build": "cross-env NODE_ENV=dev node_modules/gulp/bin/gulp.js build --gulpfile setup/gulpfile.js --cwd ."
   },
   "author": "Chistyakov Ilya",
   "license": "MIT",
@@ -38,6 +39,7 @@
     "terser-webpack-plugin": "^5.1.1",
     "ts-loader": "^8.0.17",
     "typescript": "^4.2.2",
-    "webpack": "^5.24.2"
+    "webpack": "^5.24.2",
+    "yargs": "^17.3.1"
   }
 }
