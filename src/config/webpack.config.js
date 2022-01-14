@@ -39,7 +39,7 @@ module.exports = function() {
             }
         },
 
-        watch: config.isDev,
+        watch: config.isDev && config.isWatching,
 
         watchOptions: {
             ignored: /node_modules/

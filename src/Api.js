@@ -85,6 +85,10 @@ class Api {
     isDev() {
         return config.isDev;
     }
+
+    isWatching() {
+        return config.isWatching;
+    }
 }
 
 module.exports = Api;
