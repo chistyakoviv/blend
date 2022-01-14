@@ -10,8 +10,6 @@ const argv = yargs(hideBin(process.argv)).argv
 config.isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'dev';
 config.isWatching = Boolean(argv.watch);
 
-console.log(config.isWatching);
-
 require(blend.path());
 
 if (config.isDev) {
